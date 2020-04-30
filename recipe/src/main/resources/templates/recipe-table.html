@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}" lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.ultraq.net.nz/thymeleaf/layout ">
+
+<div layout:fragment="continut" class="container"><br>
+    <h2 class="card-text" th:text="${category}"></h2><br>
+    <div class="row">
+        <div class="col-md-3" th:each="recipe:${recipes_name}">
+            <div class="card mb-4 shadow-sm">
+                <a th:href="@{'/recipe/details/'+${recipe.id}}">
+                    <img th:src="@{'data:image/png;base64,'+${recipe.image}}" width="255" height="255"
+                         class="img-responsive" alt="" src=""></a>
+                <div class="card-body">
+                    <p class="card-text" th:text="${recipe.recipeName}"></p>
+                    <p class="card-text" th:text="${recipe.description}"></p>
+                    <p class="card-text" th:text="${recipe.category}"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
